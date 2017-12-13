@@ -195,4 +195,112 @@ Exemplo: calcular a soma de todos os itens da lista
 ```
 >15
 
+#  Iteradores e Iteráveis
 
+A iteração é definida por dois conceitos centrais: iteradores e iteráveis.
+
+Definimos como um iterador um objeto que sabe como acessar, um a um, os itens de um iterável, enquanto mantém o status da sua posição atual na estrutura. Esses objetos oferecem o método next, que retorna o próximo item da estrutura do iterável sempre que invocado. Um objeto é definido como iterável se ele define explicitamente o seu comportamento de iteração. Para isso, é necessário que ele implemente o seu iterador na propriedade de chave Symbol.iterator. No JavaScript, alguns tipos já são iteráveis por padrão:
+
+    Arrays
+    Strings
+    Maps
+    Sets
+
+Para cada vez que chamamos o método next, ele nos retorna um objeto com duas propriedades: value e done. A primeira contém o valor armazenado na estrutura que foi recuperado. A segunda é um booleano que nos diz se todos os itens da estrutura foram acessados.
+
+Apesar de não ser a melhor maneira de utilizá-lo, podemos acessar o iterator da estrutura diretamente para utilizá-lo no código.
+
+Exemplo: recuperar o nome de cada um 
+
+```javascript
+
+var funcaoSeletor = function (pessoa){
+  var cargos = ['analista','programador','gerente de projeto','BDA']
+  var cargo = cargos[Math.floor(Math.random()*cargos.length)]
+  
+  console.log(`Nome ${pessoa} | Cargo: ${cargo} `)
+  
+}
+
+var pessoas = ['Fulano', 'Sicrano', 'Beltrano']
+
+//Vamos escolher os cargos das pessoas
+var iterador = pessoas[Symbol.iterator]()
+var done = false
+var proximo = iterador.next()
+
+do{
+  var pessoa = proximo.value
+  funcaoSeletor(pessoa)
+  proximo = iterador.next()
+  
+}while(!proximo.done)
+
+```
+> Exemplo de saída do console  Nome Fulano | Cargo: analista 
+Nome Sicrano | Cargo: BDA 
+Nome Beltrano | Cargo: gerente de projeto 
+=> { value: undefined, done: true }
+
+# for ... of
+
+É um laço de repetição: o laço for...of.  Este tipo de laço foi criado para percorrer um objeto se, e somente se, ele for iterável. Seu funcionamento é bem simples. Sua sintaxe é:
+
+```javascript
+
+    for (variavel of iteravel) {
+      // corpo
+    }
+
+```
+A variavel representa uma variável de auxílio que assume valores diferentes a cada iteração, e o iteravel é o objeto que será iterado. O caso de uso mais recorrente deste tipo de laço é para passar por todos os valores contidos em um Array, Set ou um Map. 
+
+Sua utilização é muito simples.
+
+Exemplo: iterar uma lista de números
+
+```javascript
+    var numeros = [1,2,3,4,5]
+    for(var numero of numeros) {
+      console.log(numero)
+    }
+
+```
+
+E assim como em outros laços de repetição, o break e o continue também funcionam dentro de laços for...of. Usamos o break para interromper a execução de um laço.
+
+Exemplo: Interrromper se houver um número maior que 3
+
+
+```javascript
+    var numeros = [1,2,3,4,5]
+for(var numero of numeros) {
+  if(numero > 3) {
+    break
+  }
+  console.log(numero)
+}
+
+/*
+sáida do console
+1
+2
+3
+*/
+
+```
+Já o continue usamos para indicar que o laço deve ser continuado, passando imediatamente para o próximo item. 
+
+Exemplo: Colocar uma condição no laço para nunca imprimir no console o número dois
+
+```javascript
+var numeros = [1,2,3,4,5]
+    for(var numero of numeros) {
+      if(numero === 2) {
+        continue
+      }
+      console.log(numero)
+    }
+    // 1 3 4 5
+```
+> Obs:Este exemplo veio do material do curso de ECMAScript6 do professor Diego Martins de Pinho
