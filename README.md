@@ -303,4 +303,122 @@ var numeros = [1,2,3,4,5]
     }
     // 1 3 4 5
 ```
-> Obs:Este exemplo veio do material do curso de ECMAScript6 do professor Diego Martins de Pinho
+> Obs:Este exemplo veio do material do curso de ECMAScript6 do professor Diego Martins de Pinho. Dica caso queira se aprofundar no assunto super indicado seu curso da platafoma Udemy.
+
+# Set
+
+O Set é uma estrutura de dados que nos permite ter listas com valores que nunca se duplicam e que mantém a ordem de inserção dos seus itens. Sua utilização também é muito simples. Seus principais métodos são: add, delete, clear e o has.
+
+```javascript
+    var set = new Set()
+    set.add(1) // adiciona um item
+    set.has(1) // verifica se o item já foi inserido
+    set.delete(1) // deleta
+    set.clear() // remove todos os itens
+
+```
+E como o Set também é um objeto iterável, podemos usar o for...of nele:
+
+```javascript
+    var set = new Set([1,2,3,4,5]) // inicializando o set no construtor
+     
+    for (const valor of set) {
+        console.log(valor)    // 1 2 3 4 5
+    }
+
+```
+# Template Strings
+
+O ES6 trouxe o conceito de Template Strings. Há dois tipos:
+
+* Template strings simples;
+* Template strings marcardos (tags).
+
+Esses Templates são estruturas que nos permite formar expressões com strings usando funcionalidades como interpolação e multilinhas. 
+
+
+## Template strings simples
+
+Para utilizar, basta utilizarmos as crases (`) ao invés das aspas (simples ou duplas). Com ela, podemos inserir diretamente o valor de variáveis dentro de uma string e manter a sua formação sem fazer uso de escapes, como neste exemplo: 
+
+```javascript
+const n1 = 1, n2 = 2
+console.log(`${n1} + ${n2} = ${n1 + n2}`)
+// 1 + 2 = 3
+```
+Para interpolar os valores, utilizamos as chaves ({}). Qualquer expressão que é jogada lá dentro é resolvida e então inserida dentro da string, como fizemos neste exemplo.
+
+## Template strings marcadas
+
+Ao marcar uma Template String, conseguimos modificar seus valores com uma função. Como neste exemplo:
+
+```javascript
+
+function soma(n1,n2) {
+  let resultado = `${n1} + ${n2} = ${n1+n2}`;
+  console.log(resultado);
+}
+
+soma(1,2)
+
+//1 + 2 = 3
+
+```
+
+# Arrow Functions
+
+
+Com o ES6, nós ganhamos mais uma maneira de declarar funções: através das Arrow Functions (em tradução livre, seria algo como "funções de seta"). Esta estrutura é uma notação simplificada criada para facilitar a implementação de funções por expressão no JavaScript. A definição de uma Arrow Function é bem simples e segue esta ordem:
+
+    Parâmetros dentro de parênteses (...);
+    Fat arrow (=>);
+    Corpo da função entre chaves ({...}).
+
+Veja a sintaxe:
+
+```javascript
+    (param1, param2 …, param n) => {
+        // corpo da função
+    }
+```
+
+Esta nova notação possui duas vantagens em relação a antiga maneira de declararmos expressões de função.
+
+São menos verbosas: Arrow Functions nos permite escrever funções menos verbosas. Veja como podemos tornar o código mais enxuto:
+
+```javascript
+    // ES5
+    var boasVindas = function(nome) {
+        return "Seja bem-vindo, " + nome;
+    }
+     
+    // ES6
+    const boasVindas = nome => `Seja bem-vindo, ${nome}`;
+    boasVindas("Luiz"); // Seja bem-vindo, Luiz
+ ```
+
+O contexto de execução é diferente: Sempre que executamos uma função no JavaScript, ela é associada a um contexto de execução. Esse contexto possui uma propriedade denominada ThisBinding, que pode ser acessada a qualquer momento através da palavra reservada this. O valor do this, que chamamos de contexto da função, é constante e existe enquanto este contexto de execução existir. As Arrow Functions foram projetadas para conseguirmos capturar o this do seu contexto delimitador (chamamos isso de escopo léxico da função), como no exemplo a seguir:
+
+```javascript
+    const equipe = {
+      nome: 'Soldados x',
+      membros: ['Cicrano', 'Beltrano', 'Fulano'],
+      membrosDaEquipe: function() {
+        this.membros.forEach(membro => {
+          console.log(`${membro} é da equipe ${this.nome}`);
+        })
+      }
+    }
+     equipe.membrosDaEquipe()
+```
+
+Ao executar o equipe.membrosDaEquipe novamente, continuamos tendo a saída esperada:
+
+```javascript
+  Cicrano é da equipe Soldados x
+  Beltrano é da equipe Soldados x
+  Fulano é da equipe Soldados x
+  ```
+
+Como as Arrow Functions conseguem fazer a associação (bind) do this de forma automática, referenciar o this do contexto da execução delimitadora para o escopo da atual função deixou de ser um problema.
+
