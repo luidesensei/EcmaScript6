@@ -92,12 +92,7 @@ nomes.forEach(function (nome){
 })
 
 ```
->Saída no console
-
-fulano
-sicrano
-beltrano
-jose
+>Saída no console  fulano sicrano beltrano jose
 
 ## map
 
@@ -107,13 +102,79 @@ Exemplo: dobrar todos os valores.
 
 ```javascript
 
-var numeros = [1,2,3,4,5];
+var numeros = [1,2,3,4,5]
 var dobro = numeros.map(function(numero){
-    return numero * 2;
+    return numero * 2
 });
  
-console.log(dobro);
-```
-> Saída no console
+console.log(dobro)
 
-[ 2, 4, 6, 8, 10 ]
+```
+> Saída no console  [ 2, 4, 6, 8, 10 ]
+
+## filter
+
+Ótima para filtrar itens da nossa lista. 
+
+Exemplo: listar somente os números pares.
+
+```javascript
+var numeros = [1,2,3,4,5]
+var pares = numeros.filter(function(numero){
+    return numero % 2 === 0
+})
+ 
+console.log(pares)
+
+```
+> Saída no console  [ 2, 4]
+
+## find
+
+Se estiver procurando um item da lista, utilize o find. Lembrando que ele só devolve apenas a primeira ocorrência do item que bate com a condição da busca. 
+
+Exemplo: encontrar o número dois.
+
+```javascript
+
+var numeros = [1,2,3,4,5]
+var valor = numeros.find(function(numero){
+    return numero == 2
+})
+ 
+console.log(valor) 
+
+```
+>Saída do console 2
+
+## every
+Essa função é excelente para quando precisamos validar se todos os itens da lista atendem a um critério em comum.
+
+Exemplo: validar se todos os valores são menores que 10
+
+```javascript
+var numeros = [1,2,3,4,5]
+var todosMenoresQueDez = numeros.every(function(numero){
+    return numero < 10
+})
+ 
+console.log(todosMenoresQueDez)
+
+```
+> Saída do console  true
+
+
+## some
+Esta função valida se há pelo menos um item que atende a um critério.
+
+Exemplo: validar se há algum número três na lista
+
+```javascript 
+var numeros = [1,2,3,4,5]
+var peloMenosUmNumeroTres = numeros.some(function(numero){
+    return numero === 3
+})
+ 
+console.log(peloMenosUmNumeroTres)
+```
+> true
