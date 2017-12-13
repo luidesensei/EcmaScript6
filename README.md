@@ -428,6 +428,9 @@ Estes conceitos de funções são da programação funcional.
 Para entender o assunto : 
 "site" https://medium.com/tableless/entendendo-programa%C3%A7%C3%A3o-funcional-em-javascript-de-uma-vez-c676489be08b
 
+# Função pura
+Funções Puras (pure functions) tem inputs e outputs declarados e não geram side-effects( Funções Impuras (impure functions)). Além disso, o retorno de uma função pura dado um parâmetro será sempre o mesmo, já o das impuras se invocada diversas vezes, o retorno dela nem sempre será o mesmo. O que dificulta a manutenção e os testes na sua aplicação. Por isto escrever funções puras e remover side-effects é a base da Programação Funcional.
+
 ```javascript
 //função pura
 
@@ -449,6 +452,12 @@ const gerarTeste = (qtd,tipo) =>{
 
 ```
 Outro exemplo de high order function
+
+## High order function 
+
+São funções que operam sobre outras funções ou as recebendo como parâmetro ou as retornando são chamadas de Higher-Order Functions.
+
+![high order function] https://cdn-images-1.medium.com/max/800/1*QaaVwrtutJRkO8ugJKJ3bw.jpeg
 
 ```javascript
 
