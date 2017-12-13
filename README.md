@@ -178,3 +178,21 @@ var peloMenosUmNumeroTres = numeros.some(function(numero){
 console.log(peloMenosUmNumeroTres)
 ```
 > true
+
+## reduce
+
+O reduce faz a redução dos itens de um array.
+
+Exemplo: calcular a soma de todos os itens da lista
+
+```javascript
+    var numeros = [1,2,3,4,5]
+    var soma = numeros.reduce(function(soma,numero){
+        return soma + numero
+    },0)
+     
+    console.log(soma) 
+```
+>15
+
+
