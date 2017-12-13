@@ -431,6 +431,8 @@ Para entender o assunto :
 # Função pura
 Funções Puras (pure functions) tem inputs e outputs declarados e não geram side-effects( Funções Impuras (impure functions)). Além disso, o retorno de uma função pura dado um parâmetro será sempre o mesmo, já o das impuras se invocada diversas vezes, o retorno dela nem sempre será o mesmo. O que dificulta a manutenção e os testes na sua aplicação. Por isto escrever funções puras e remover side-effects é a base da Programação Funcional.
 
+![pure function](https://cdn-images-1.medium.com/max/800/1*RBr2QH3f_Wm2_tKtsFkQsw.png)
+
 ```javascript
 //função pura
 
@@ -457,7 +459,7 @@ Outro exemplo de high order function
 
 São funções que operam sobre outras funções ou as recebendo como parâmetro ou as retornando são chamadas de Higher-Order Functions.
 
-![high order function] https://cdn-images-1.medium.com/max/800/1*QaaVwrtutJRkO8ugJKJ3bw.jpeg
+![high order function](https://cdn-images-1.medium.com/max/800/1*QaaVwrtutJRkO8ugJKJ3bw.jpeg)
 
 ```javascript
 
