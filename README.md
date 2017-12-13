@@ -422,3 +422,28 @@ Ao executar o equipe.membrosDaEquipe novamente, continuamos tendo a saída esper
 
 Como as Arrow Functions conseguem fazer a associação (bind) do this de forma automática, referenciar o this do contexto da execução delimitadora para o escopo da atual função deixou de ser um problema.
 
+## Exemplo de função pura e de high order function
+
+Estes conceitos de funções são da programação funcional.
+Para entender o assunto : "site" https://medium.com/tableless/entendendo-programa%C3%A7%C3%A3o-funcional-em-javascript-de-uma-vez-c676489be08b
+
+```javascript
+//função pura
+
+const teste1 = () => {
+    console.log('testando 1 2 3')
+}
+
+const teste2 = () =>{
+    console.log('Este e o segundo teste')
+}
+
+//high order function
+
+const gerarTeste = (qtd,tipo) =>{
+    for(let i=0;i< qtd;i++){
+        tipo()
+    }
+}
+
+```
