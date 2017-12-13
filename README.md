@@ -425,7 +425,8 @@ Como as Arrow Functions conseguem fazer a associação (bind) do this de forma a
 ## Exemplo de função pura e de high order function
 
 Estes conceitos de funções são da programação funcional.
-Para entender o assunto : "site" https://medium.com/tableless/entendendo-programa%C3%A7%C3%A3o-funcional-em-javascript-de-uma-vez-c676489be08b
+Para entender o assunto : 
+"site" https://medium.com/tableless/entendendo-programa%C3%A7%C3%A3o-funcional-em-javascript-de-uma-vez-c676489be08b
 
 ```javascript
 //função pura
@@ -445,5 +446,20 @@ const gerarTeste = (qtd,tipo) =>{
         tipo()
     }
 }
+
+```
+Outro exemplo de high order function
+
+```javascript
+
+var calculate = (fn, x, y) =>{
+    return fn(x, y)
+}
+
+const sum = (x, y) => x + y
+const mult = (x, y) => x * y
+
+calculate(sum, 2, 5) // 7
+calculate(mult, 2, 5) // 10
 
 ```
