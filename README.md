@@ -61,7 +61,59 @@ A sua principal diferença em relação ao var, é que o var tem escopo de funç
 
 ```javascript
 
-
+let finalSemana = ['sábado','Domingo']
+console.log(finalSemana[0])
+finalSemana.push('sexta-feira')
+console.dir(finalSemana)
 
 ```
+> Saída no console
 
+sábado
+[ 'sábado', 'Domingo', 'sexta-feira' ]
+
+
+# Métodos Auxiliares
+Os métodos auxiliares nos permite iterar um array de forma muito mais clara e simples. Vamos ver os 5 que existe: forEach, map, filter, find, every, some e o reduce. Sendo que cada um tem uma função bem específica. Abaixo, segue um exemplo de como utilizá-los:
+
+## forEach
+
+Utilizamos para quando precisamos passar por todos os nossos itens de um Array. 
+
+Exemplo: exibir todos os seus itens no console.
+
+```javascript
+var nomes = ['fulano','sicrano','beltrano']
+
+nomes.push('jose')
+
+nomes.forEach(function (nome){
+  console.log(nome)
+})
+
+```
+>Saída no console
+
+fulano
+sicrano
+beltrano
+jose
+
+## map
+
+Usado para quando precisamos não somente passar por todos os itens, mas fazer algo com eles. 
+
+Exemplo: dobrar todos os valores.
+
+```javascript
+
+var numeros = [1,2,3,4,5];
+var dobro = numeros.map(function(numero){
+    return numero * 2;
+});
+ 
+console.log(dobro);
+```
+> Saída no console
+
+[ 2, 4, 6, 8, 10 ]
